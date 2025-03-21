@@ -1,0 +1,174 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>to managed (CURD-I) cisco &quot;simple&quot; access-list</description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>access-list</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>sase</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="action" name="params.rules.0.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="permit">permit</values>
+        <values displayValue="deny">deny</values>
+      </values>
+    </variable>
+    <variable displayName="proto" name="params.rules.0.proto" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="port" name="params.rules.0.port" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" selector="params.rules.0.proto" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="port" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.rules.0.port" selectorValue="tcp" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.rules.0.proto</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="port" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.rules.0.port" selectorValue="udp" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.rules.0.proto</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="port" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.rules.0.port" selectorValue="ip" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.rules.0.proto</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+    </variable>
+    <variable displayName="source" name="params.rules.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="destination" name="params.rules.0.destination" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>ip access-list extended netskope-web-acl
+ 10 permit tcp any any eq 443
+ 20 permit tcp any any eq www
+ 30 permit icmp any host 123.4.4.4
+ 40 permit icmp any host 81.1.3.126
+ 50 permit ip any host 10.174.6.209
+ip access-list extended test
+ 10 deny icmp any any
+ 20 permit tcp any host 2.2.2.2 eq 45
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[sho run | sec  ip access-list extended]]></operation>
+    <parser>
+      <section>
+        <regexp>@^ip access-list extended (?&lt;object_id&gt;\S+)$@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <array name="rules">
+            <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) (?&lt;destination&gt;any) eq (?&lt;port&gt;\S+)$@</regexp>
+            <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) host (?&lt;destination&gt;\S+)$@</regexp>
+            <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) (?&lt;destination&gt;any)$@</regexp>
+            <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) host (?&lt;destination&gt;\S+) eq (?&lt;port&gt;\S+)$@</regexp>
+          </array>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[ip access-list extended {$params.object_id}
+{foreach from=$params.rules item=rule}
+  {$rule.action} {$rule.proto} {if $rule.source == 'any'}{$rule.source}{else}host {$rule.source}{/if} {if $rule.destination == 'any'}{$rule.destination}{else}host {$rule.destination}{/if} {if not empty($rule.port)}eq {$rule.port}{/if}
+ 
+{/foreach} 
+]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[no ip access-list extended {$params.object_id}
+ip access-list extended {$params.object_id}
+{foreach from=$params.rules item=rule}
+  {$rule.action} {$rule.proto} {if $rule.source == 'any'}{$rule.source}{else}host {$rule.source}{/if} {if $rule.destination == 'any'}{$rule.destination}{else}host {$rule.destination}{/if} {if not empty($rule.port)}eq {$rule.port}{/if}
+ 
+{/foreach} ]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[no ip access-list extended {$params.object_id}]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>access-list</displayName>
+  <order>0</order>
+</ObjectDefinition>

@@ -1,0 +1,137 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>Manage (CRUD-I) only the interface tunnel on Cisco IOS</description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>interface tunnel</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>sase</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Interface name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="Should start with &quot;Tunnel&quot;" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="true" isUserLocked="false" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tcp mss" name="params.tcp_mss" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="1436" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="period" name="params.keepalive_period" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="10" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>keepalive</sections>
+      </sections>
+    </variable>
+    <variable displayName="retries" name="params.keepalive_retries" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="3" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>keepalive</sections>
+      </sections>
+    </variable>
+    <variable displayName="External interface" name="params.source_interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>interface</class>
+      </classes>
+    </variable>
+    <variable displayName="Peer IP address" name="params.peer_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="130" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>interface Tunnel1 
+ description &quot;Primary GRE Tunnel&quot;
+ ip unnumbered GigabitEthernet1
+ ip tcp adjust-mss 1436
+ keepalive 10 3
+ tunnel source GigabitEthernet1 
+ tunnel destination 1.1.1.1
+!
+interface Tunnel2
+ description &quot;Backup GRE Tunnel&quot;
+ ip unnumbered GigabitEthernet1
+ ip tcp adjust-mss 1436
+ keepalive 10 3
+ tunnel source GigabitEthernet1 
+ tunnel destination 1.1.1.2
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[sho run | sec  interface Tunnel]]></operation>
+    <parser>
+      <section>
+        <regexp>@^interface\s(?&lt;object_id&gt;Tunnel\S+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@^\sdescription &quot;(?&lt;description&gt;.+)&quot;$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\sip tcp adjust-mss (?&lt;tcp_mss&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\skeepalive (?&lt;keepalive_period&gt;\S+) (?&lt;keepalive_retries&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\stunnel source (?&lt;source_interface&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\stunnel destination (?&lt;peer_ip&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+        <ignore>
+          <regexp>@^\sip unnumbered.*@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[interface {$params.object_id}
+ {if not empty($params.description)}description "{$params.description}"
+ {/if}
+ ip unnumbered {$params.source_interface}
+ {if not empty($params.tcp_mss)}ip tcp adjust-mss {$params.tcp_mss} 
+ {else}ip tcp adjust-mss 1436 
+ {/if}
+ tunnel source {$params.source_interface} 
+ tunnel destination {$params.peer_ip}]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[interface {$params.object_id}
+ {if not empty($params.description)}description "{$params.description}"
+ {/if}
+ ip unnumbered {$params.source_interface}
+ {if not empty($params.tcp_mss)}ip tcp adjust-mss {$params.tcp_mss} 
+ {else}ip tcp adjust-mss 1436 
+ {/if}
+ tunnel source {$params.source_interface} 
+ tunnel destination {$params.peer_ip}]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[no interface {$params.object_id} ]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>interface tunnel</displayName>
+  <order>0</order>
+</ObjectDefinition>
