@@ -1,0 +1,111 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>ip sla</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>sase</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="icmp-echo" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="target" name="params.target" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="source_ip" name="params.source_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="threshold" name="params.threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="frequency" name="params.frequency" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>ip sla 1
+ icmp-echo 10.174.6.209
+  threshold 500
+  frequency 5
+ip sla schedule 1 life forever start-time now
+ip sla 80
+ http get http://146.190.62.39/ source-ip 5.5.5.5
+ip sla schedule 80 life forever start-time now
+
+IPSLA operation id: 1
+Latest operation return code: OK
+IPSLA operation id: 80
+Latest operation return code: OK
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[sho run | sec ip sla##sho ip sla statistics  | inc IPSLA |Latest operation return]]></operation>
+    <parser>
+      <section>
+        <regexp>@^ip sla (?&lt;object_id&gt;\d+)@</regexp>
+        <regexp>@^IPSLA operation id:\s+(?&lt;object_id&gt;\d+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@^\s+(?&lt;type&gt;icmp-echo) (?&lt;target&gt;\S+)( source-ip (?&lt;source_ip&gt;\S+))?@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s+(?&lt;type&gt;http get) (?&lt;target&gt;\S+)( source-ip (?&lt;source_ip&gt;\S+))?@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s+threshold (?&lt;threshold&gt;\d+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s+frequency (?&lt;frequency&gt;\d+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^Latest operation return code:\s+(?&lt;status&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[ip sla {$params.object_id}
+ icmp-echo {$params.target}
+  threshold 500
+  frequency 5
+ip sla schedule {$params.object_id} life forever start-time now
+]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[no ip sla {$params.object_id}
+ip sla {$params.object_id}
+ icmp-echo {$params.target}
+  threshold 500
+  frequency 5
+ip sla schedule {$params.object_id} life forever start-time now]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[no ip sla {$params.object_id}]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>ip sla</displayName>
+  <order>0</order>
+</ObjectDefinition>
