@@ -181,8 +181,9 @@ interface Tunnel2
  {else}ip tcp adjust-mss 1436 
  {/if}
  {if $params.tcp_mss = ipsec } tunnel mode ipsec ipv4
- tunnel protection ipsec profile {$params.ipsec_profile} 
+ tunnel protection ipsec profile {$params.ipsec_profile}
  {/if}
+ 
  keepalive {$params.keepalive_period} {$params.keepalive_retries}
  tunnel source {$params.source_interface} 
  tunnel destination {$params.peer_ip}]]></operation>
@@ -197,8 +198,10 @@ interface Tunnel2
  {else}ip tcp adjust-mss 1436 
  {/if}
  {if $params.tcp_mss = ipsec } tunnel mode ipsec ipv4
- tunnel protection ipsec profile {$params.ipsec_profile} 
+ tunnel protection ipsec profile {$params.ipsec_profile}
  {/if}
+ 
+ keepalive {$params.keepalive_period} {$params.keepalive_retries}
  tunnel source {$params.source_interface} 
  tunnel destination {$params.peer_ip}]]></operation>
   </command>
