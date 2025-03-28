@@ -1,0 +1,97 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>ipsec_settings</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>sase</directoryName>
+      <directoryName>ipsec</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ikev2_profile" name="params.ikev2_profile" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>ikev2_settings</class>
+      </classes>
+    </variable>
+    <variable displayName="ipsec_transform" name="params.ipsec_transform" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="default-ipsec-transform-set " isMandatory="true" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>crypto ipsec transform-set ipsectrans esp-gcm 256 
+ mode tunnel
+!         
+crypto ipsec profile nsipsec
+ set transform-set nsipsec 
+ set ikev2-profile ikev2profile
+!         
+crypto ipsec profile nsipsec2
+ set transform-set nsipsec 
+ set ikev2-profile ikev2profile2</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[sho run |  sec crypto ipsec profile]]></operation>
+    <parser>
+      <section>
+        <regexp>@crypto ipsec profile (?&lt;object_id&gt;\S+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s+set ikev2-profile (?&lt;ikev2_profile&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s+set transform-set (?&lt;ipsec_transform&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[crypto ipsec transform-set default-ipsec-transform-set esp-gcm 256 
+ mode tunnel
+!         
+crypto ipsec profile {$params.object_id}
+ set transform-set  default-ipsec-transform-set
+ set ikev2-profile  {$params.ikev2_profile}
+]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[no crypto ipsec profile {$params.object_id}]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>ipsec_settings</displayName>
+  <order>0</order>
+</ObjectDefinition>
