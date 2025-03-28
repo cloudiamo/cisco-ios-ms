@@ -29,7 +29,7 @@
     </directoryNames>
   </information>
   <variables frozen="0">
-    <variable displayName="Interface name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="Should start with &quot;Tunnel&quot;" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="true" isUserLocked="false" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface Tunnel id" name="params.object_id" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="Should start with &quot;Tunnel&quot;" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Tcp mss" name="params.tcp_mss" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="1436" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="period" name="params.keepalive_period" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="10" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -71,7 +71,7 @@ interface Tunnel2
     <operation><![CDATA[sho run | sec  interface Tunnel]]></operation>
     <parser>
       <section>
-        <regexp>@^interface\s(?&lt;object_id&gt;Tunnel\S+)@</regexp>
+        <regexp>@^interface\sTunnel(?&lt;object_id&gt;\d+)@</regexp>
       </section>
       <lines>
         <line>
@@ -105,7 +105,7 @@ interface Tunnel2
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[interface {$params.object_id}
+    <operation><![CDATA[interface Tunnel{$params.object_id}
  {if not empty($params.description)}description "{$params.description}"
  {/if}
  ip unnumbered {$params.source_interface}
@@ -117,7 +117,7 @@ interface Tunnel2
   </command>
   <command name="READ"/>
   <command name="UPDATE">
-    <operation><![CDATA[interface {$params.object_id}
+    <operation><![CDATA[interface Tunnel{$params.object_id}
  {if not empty($params.description)}description "{$params.description}"
  {/if}
  ip unnumbered {$params.source_interface}
@@ -129,7 +129,7 @@ interface Tunnel2
   </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE">
-    <operation><![CDATA[no interface {$params.object_id} ]]></operation>
+    <operation><![CDATA[no interface Tunnel{$params.object_id} ]]></operation>
   </command>
   <command name="LIST"/>
   <displayName>interface tunnel</displayName>
