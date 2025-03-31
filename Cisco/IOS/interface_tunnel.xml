@@ -180,7 +180,7 @@ interface Tunnel2
  {if not empty($params.tcp_mss)}ip tcp adjust-mss {$params.tcp_mss} 
  {else}ip tcp adjust-mss 1436 
  {/if}
- {if $params.tcp_mss = ipsec } tunnel mode ipsec ipv4
+ {if $params.mode = ipsec } tunnel mode ipsec ipv4
  tunnel protection ipsec profile {$params.ipsec_profile}
  {/if}
  
@@ -197,7 +197,7 @@ interface Tunnel2
  {if not empty($params.tcp_mss)}ip tcp adjust-mss {$params.tcp_mss} 
  {else}ip tcp adjust-mss 1436 
  {/if}
- {if $params.tcp_mss = ipsec } tunnel mode ipsec ipv4
+ {if $params.mode = ipsec } tunnel mode ipsec ipv4
  tunnel protection ipsec profile {$params.ipsec_profile}
  {/if}
  
