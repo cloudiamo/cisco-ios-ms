@@ -70,11 +70,11 @@
           <xpath></xpath>
         </line>
         <line>
-          <regexp>@^ set interface (?&lt;interface_primary&gt;\S+)$@</regexp>
+          <regexp>@^ set interface Tunnel(?&lt;interface_primary&gt;\S+)$@</regexp>
           <xpath></xpath>
         </line>
         <line>
-          <regexp>@^ set interface (?&lt;interface_primary&gt;\S+*)  (?&lt;interface_secondary&gt;\S+) @</regexp>
+          <regexp>@^ set interface Tunnel(?&lt;interface_primary&gt;\S+) Tunnel(?&lt;interface_secondary&gt;\S+)@</regexp>
           <xpath></xpath>
         </line>
       </lines>
@@ -83,13 +83,13 @@
   <command name="CREATE">
     <operation><![CDATA[route-map {$params.object_id} permit 1
  match ip address {$params.access_list}
- set interface {$params.interface_primary} {$params.interface_secondary}]]></operation>
+ set interface  Tunnel{$params.interface_primary}  Tunnel{$params.interface_secondary}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE">
     <operation><![CDATA[route-map {$params.object_id} permit 1
  match ip address {$params.access_list}
- set interface {$params.interface_primary} {$params.interface_secondary}]]></operation>
+ set interface Tunnel{$params.interface_primary} Tunnel{$params.interface_secondary}]]></operation>
   </command>
   <command name="CONSTRAINT">
     <operation><![CDATA[{* BEGIN - Auto Generated for Composite Key Variables. *}
