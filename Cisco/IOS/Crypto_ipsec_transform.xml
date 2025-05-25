@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>Crypto ipsec</name>
+    <name>Crypto ipsec transform</name>
     <group>VPN IPSec</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
@@ -61,8 +61,9 @@ exit
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation><![CDATA[crypto ipsec transform-set {$params.object_id} esp-3des esp-sha-hmacmode {$params.mode}
+    <operation><![CDATA[crypto ipsec transform-set {$params.object_id} esp-3des esp-sha-hmac
 exit
+
 ]]></operation>
   </command>
   <command name="DELETE">
@@ -71,6 +72,6 @@ exit
   </command>
   <command name="READ"/>
   <command name="LIST"/>
-  <displayName>Crypto ipsec</displayName>
+  <displayName>Crypto ipsec transform</displayName>
   <order>300</order>
 </ObjectDefinition>
