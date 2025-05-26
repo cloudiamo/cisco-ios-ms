@@ -81,11 +81,11 @@ crypto ipsec profile nsipsec2
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[crypto ipsec transform-set default-ipsec-transform-set esp-aes esp-sha256-hmac
+    <operation><![CDATA[crypto ipsec transform-set {$params.ipsec_transform} esp-aes esp-sha256-hmac
  mode tunnel
 !         
 crypto ipsec profile {$params.object_id}
- set transform-set  default-ipsec-transform-set
+ set transform-set  {$params.ipsec_transform}
  set ikev2-profile  {$params.ikev2_profile}
 ]]></operation>
   </command>
