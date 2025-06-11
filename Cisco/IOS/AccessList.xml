@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>access-list</name>
+    <name>Access List</name>
     <group>SASE|SSE</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
