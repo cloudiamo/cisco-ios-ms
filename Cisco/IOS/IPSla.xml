@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>ip sla</name>
+    <name>IP Sla</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -106,6 +106,6 @@ ip sla schedule {$params.object_id} life forever start-time now]]></operation>
     <operation><![CDATA[no ip sla {$params.object_id}]]></operation>
   </command>
   <command name="LIST"/>
-  <displayName>ip sla</displayName>
+  <displayName>IP Sla</displayName>
   <order>0</order>
 </ObjectDefinition>

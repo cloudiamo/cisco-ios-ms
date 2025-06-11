@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>ikev2_settings</name>
+    <name>IKEv2 Settings</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -138,6 +138,6 @@ no crypto ikev2 profile {$params.object_id}
 ]]></operation>
   </command>
   <command name="LIST"/>
-  <displayName>ikev2_settings</displayName>
+  <displayName>IKEv2 Settings</displayName>
   <order>0</order>
 </ObjectDefinition>

@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>interface tunnel</name>
+    <name>Interface Tunnel</name>
     <group>SASE|SSE</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -210,6 +210,6 @@ interface Tunnel2
     <operation><![CDATA[no interface Tunnel{$params.object_id} ]]></operation>
   </command>
   <command name="LIST"/>
-  <displayName>interface tunnel</displayName>
+  <displayName>Interface Tunnel</displayName>
   <order>0</order>
 </ObjectDefinition>

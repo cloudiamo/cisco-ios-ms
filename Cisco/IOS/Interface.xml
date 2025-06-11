@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>interface</name>
+    <name>Interface</name>
     <group>SASE|SSE</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -80,6 +80,6 @@ ip ssh source-interface GigabitEthernet1
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
   <command name="LIST"/>
-  <displayName>interface</displayName>
+  <displayName>Interface</displayName>
   <order>0</order>
 </ObjectDefinition>

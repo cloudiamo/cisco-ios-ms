@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>Crypto ipsec transform</name>
+    <name>Crypto IPSec Transform</name>
     <group>VPN IPSec</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
@@ -72,6 +72,6 @@ exit
   </command>
   <command name="READ"/>
   <command name="LIST"/>
-  <displayName>Crypto ipsec transform</displayName>
+  <displayName>Crypto IPSec Transform</displayName>
   <order>300</order>
 </ObjectDefinition>

@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>ipsec_settings</name>
+    <name>IPSec Settings</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -96,6 +96,6 @@ crypto ipsec profile {$params.object_id}
     <operation><![CDATA[no crypto ipsec profile {$params.object_id}]]></operation>
   </command>
   <command name="LIST"/>
-  <displayName>ipsec_settings</displayName>
+  <displayName>IPSec Settings</displayName>
   <order>0</order>
 </ObjectDefinition>

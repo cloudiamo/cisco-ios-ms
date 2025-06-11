@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>route-map</name>
+    <name>Route Map</name>
     <group>SASE|SSE</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -108,6 +108,6 @@ The combination for secondary should be unique between all objects.
     <operation><![CDATA[no route-map {$params.object_id} ]]></operation>
   </command>
   <command name="LIST"/>
-  <displayName>route-map</displayName>
+  <displayName>Route Map</displayName>
   <order>0</order>
 </ObjectDefinition>
