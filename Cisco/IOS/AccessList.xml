@@ -197,6 +197,6 @@ ip access-list extended {$params.object_id}
     <operation><![CDATA[no ip access-list extended {$params.object_id}]]></operation>
   </command>
   <command name="LIST"/>
-  <displayName>access-list</displayName>
+  <displayName>Access List</displayName>
   <order>0</order>
 </ObjectDefinition>
