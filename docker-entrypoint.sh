@@ -20,7 +20,7 @@ then
 fi
 cd / || exit 1
 
-if [[ -f /opt/fmc_repository/cisco-ios-ms/.cloudclapp-dev ]]; then
+if [[ -f /opt/fmc_repository/cisco-ios-ms/.devops ]]; then
 	log_info "👾 Skipping upgrade for fellow developer."
 	exit 0
 fi
