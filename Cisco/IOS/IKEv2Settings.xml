@@ -49,7 +49,7 @@ crypto ikev2 keyring ns2
 !        
 crypto ikev2 profile ns1
  match fvrf any
- match identity remote address 10.136.176.30 255.255.255.255 
+ match identity remote address 10.136.176.30 255.255.255.255
  identity local fqdn cisco123
  authentication remote pre-share
  authentication local pre-share
@@ -105,11 +105,8 @@ crypto ikev2 profile ns2
          
 crypto ikev2 profile {$params.object_id}
  match fvrf any
- {if not empty($params.peer_id)}
  match identity remote fqdn {$params.peer_id}
- {else}
  match identity remote address {$params.peer_address} 255.255.255.255
- {/if}
  identity local fqdn {$params.local_id}
  authentication remote pre-share
  authentication local pre-share
@@ -127,11 +124,8 @@ crypto ikev2 profile {$params.object_id}
          
 crypto ikev2 profile {$params.object_id}
  match fvrf any
- {if not empty($params.peer_id)}
  match identity remote fqdn {$params.peer_id}
- {else}
  match identity remote address {$params.peer_address} 255.255.255.255
- {/if}
  identity local fqdn {$params.local_id}
  authentication remote pre-share
  authentication local pre-share
