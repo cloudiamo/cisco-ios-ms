@@ -14,14 +14,6 @@
             <value>string</value>
         </entry>
         <entry>
-            <key>TAG</key>
-            <value>string</value>
-        </entry>
-        <entry>
-            <key>MODEL</key>
-            <value>113</value>
-        </entry>
-        <entry>
             <key>MANUFACTURER</key>
             <value>1</value>
         </entry>
@@ -30,8 +22,16 @@
             <value>text</value>
         </entry>
         <entry>
+            <key>TAG</key>
+            <value>string</value>
+        </entry>
+        <entry>
+            <key>MODEL</key>
+            <value>113</value>
+        </entry>
+        <entry>
             <key>DISPLAYNAME</key>
-            <value>Interface Tunnel</value>
+            <value>InterfaceTunnel.xml</value>
         </entry>
     </map>
 </metadata>
