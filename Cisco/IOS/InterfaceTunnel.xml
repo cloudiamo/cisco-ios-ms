@@ -26,6 +26,7 @@
     <sortvariable>params._order</sortvariable>
     <directoryNames>
       <directoryName>SASE</directoryName>
+      <directoryName>IPSEC</directoryName>
     </directoryNames>
   </information>
   <variables frozen="0">

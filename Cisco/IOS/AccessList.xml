@@ -178,7 +178,12 @@ ip access-list extended test
   <command name="CREATE">
     <operation><![CDATA[ip access-list extended {$params.object_id}
 {foreach from=$params.rules item=rule}
-  {$rule.action} {$rule.proto} {if $rule.source == 'any'}{$rule.source}{else}host {$rule.source}{/if} {if $rule.destination == 'any'}{$rule.destination}{else}host {$rule.destination}{/if} {if not empty($rule.port)}eq {$rule.port}{/if}
+  {$rule.action} {$rule.proto} 
+  {if $rule.source == 'any'}{$rule.source}
+  {else}host {$rule.source}{/if} 
+  {if $rule.destination == 'any'}{$rule.destination}
+  {else}host {$rule.destination}{/if} 
+  {if not empty($rule.port)}eq {$rule.port}{/if}
  
 {/foreach} 
 ]]></operation>
