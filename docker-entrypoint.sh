@@ -20,7 +20,11 @@ then
 fi
 cd / || exit 1
 
+<<<<<<< Updated upstream
 if [[ -f /opt/fmc_repository/cisco-ios-ms/.git ]]; then
+=======
+if [[ -f /opt/fmc_repository/cisco-ios-ms/.devops ]]; then
+>>>>>>> Stashed changes
 	log_info "👾 Skipping upgrade for fellow developer."
 	exit 0
 fi
