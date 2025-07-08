@@ -30,7 +30,7 @@
   </information>
   <variables frozen="0">
     <variable displayName="name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="action" name="params.rules.0.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="permit" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="action" name="params.rules.0.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="permit">permit</values>
         <values displayValue="deny">deny</values>
@@ -161,11 +161,9 @@ ip access-list extended test
         <line>
           <array name="rules">
             <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) (?&lt;destination&gt;any) eq (?&lt;port&gt;\S+)$@</regexp>
-            <regexp>@^\d+ (?&lt;action&gt;\S+)\s+ (?&lt;proto&gt;\S+) (?&lt;source&gt;any) host (?&lt;destination&gt;\S+)$
-@</regexp>
-            <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) host (?&lt;destination&gt;\S+) eq (?&lt;port&gt;\S+)$@</regexp>
-            <regexp>@^\d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+)\s+(?&lt;source&gt;any)\s+host\s+(?&lt;destination&gt;\S+)$@</regexp>
+            <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) host (?&lt;destination&gt;\S+)$@</regexp>
             <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) (?&lt;destination&gt;any)$@</regexp>
+            <regexp>@^ \d+ (?&lt;action&gt;\S+)\s+(?&lt;proto&gt;\S+) (?&lt;source&gt;any) host (?&lt;destination&gt;\S+) eq (?&lt;port&gt;\S+)$@</regexp>
           </array>
           <regexp></regexp>
           <xpath></xpath>
@@ -192,7 +190,7 @@ ip access-list extended {$params.object_id}
 {foreach from=$params.rules item=rule}
   {$rule.action} {$rule.proto} {if $rule.source == 'any'}{$rule.source}{else}host {$rule.source}{/if} {if $rule.destination == 'any'}{$rule.destination}{else}host {$rule.destination}{/if} {if not empty($rule.port)}eq {$rule.port}{/if}
  
-{/foreach}]]></operation>
+{/foreach} ]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE">
