@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects></relatedObjects>
     <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
-    <name>AddressGroup</name>
+    <name>Address</name>
     <group>SASE|SSE</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -307,16 +307,29 @@ object-group network {$params.object_id}
 ]]></operation>
   </command>
   <command name="READ"/>
-  <command name="UPDATE"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{if $params.type == 'cidr_ipv6'}
+object-group v6-network {$params.object_id}
+ {$params.ip}/{$params.prefix}
+{elseif  $params.type == 'cidr_ipv4'}
+object-group network {$params.object_id}
+ {$params.ip} {$params.prefix|get_mask_from_len}
+{else}
+ host {$params.fqdn}
+{/if}
+{if isset($params.description)}
+ description {$params.description}
+{/if}]]></operation>
+  </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE">
-    <operation><![CDATA[{if $AddressGroup.{$params.object_id}.type == 'cidr_ipv6'}
+    <operation><![CDATA[{if $Address.{$params.object_id}.type == 'cidr_ipv6'}
 no object-group v6-network {$params.object_id}
 {else}
 no object-group network {$params.object_id}
 {/if}]]></operation>
   </command>
   <command name="LIST"/>
-  <displayName>AddressGroup</displayName>
+  <displayName>Address</displayName>
   <order>0</order>
 </ObjectDefinition>
