@@ -173,22 +173,28 @@
       </behaviors>
     </variable>
     <variable displayName="mask" name="params.mask" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="network_type" name="params.network_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="network_type" name="params.network_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" validationRegex="" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="network" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="network">network</values>
+        <values displayValue="v6-network">v6-network</values>
+        <values displayValue="fqdn">fqdn</values>
+      </values>
+    </variable>
   </variables>
   <example>
-    <content>object-group network ela-cidr 
- 192.168.25.0 255.255.255.0
-object-group network ela-cidr2
- 192.168.26.0 255.255.255.0
-
-object-group v6-network ela-v6 
- 2001:DB8:1::/64
-
-
-object-group network elsa-fqdn
- description sample network object group from vmr
- host else.com
-</content>
+    <content>object-group network zscaler_89.167.131.0_slash_24 
+ 89.167.131.0 255.255.255.0
+object-group v6-network zscaler_2400_7aa0_131b___slash_48 
+ 2400:7AA0:131B::/48
+object-group fqdn testvmr 
+ pattern vmr\.com
+object-group v6-network v6-test-48 
+ 2001:DB8:3333:4444:5555:6666:7777:8889/64
+ 2001:DB8:3333:4444:5555:6666:7777:8887/64
+object-group v6-network v6-test2 
+ 2001:DB8:3333:4444:5555:6666:7777:8888/128
+object-group network vmr-two 
+ group-object network-test-47</content>
   </example>
   <command name="IMPORT">
     <operation><![CDATA[show run | section object-group]]></operation>
@@ -205,6 +211,7 @@ object-group network elsa-fqdn
       <section>
         <regexp>@^object-group\s+(?&lt;network_type&gt;v6-network)\s+(?&lt;object_id&gt;\S+)@</regexp>
         <regexp>@^object-group\s+(?&lt;network_type&gt;network)\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;fqdn)\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <line>
@@ -280,7 +287,7 @@ object-group network elsa-fqdn
           <xpath></xpath>
         </line>
         <line>
-          <regexp>@^\s*(?&lt;network_type&gt;host)\s+(?&lt;ip&gt;\S+)$@</regexp>
+          <regexp>@^\s*(?&lt;ip&gt;\S+)$@</regexp>
           <xpath></xpath>
         </line>
         <line>
