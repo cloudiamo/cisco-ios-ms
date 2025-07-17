@@ -199,14 +199,17 @@ object-group network vmr-two
   <command name="IMPORT">
     <operation><![CDATA[show run | section object-group]]></operation>
     <post_template>{assign_object_variable var=&quot;prefix&quot; value=&quot;{$params.mask|get_mask_prefix}&quot;}
-	
+{assign_object_variable var=&quot;ip&quot; value=&quot;{$params.ip|replace:&apos;\\.&apos;:&apos;.&apos;}&quot;}
+
+
 {if $params.network_type == &quot;v6-network&quot;}
- {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv6&quot;}
+  {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv6&quot;}
 {elseif $params.network_type == &quot;network&quot;}
- {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv4&quot;}
-{elseif $params.network_type == &quot;host&quot;}
- {assign_object_variable var=&quot;type&quot; value=&quot;fqdn&quot;}
-{/if}</post_template>
+  {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv4&quot;}
+{elseif $params.network_type == &quot;fqdn&quot;}
+  {assign_object_variable var=&quot;type&quot; value=&quot;fqdn&quot;}
+{/if}
+</post_template>
     <parser>
       <section>
         <regexp>@^object-group\s+(?&lt;network_type&gt;v6-network)\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -287,7 +290,7 @@ object-group network vmr-two
           <xpath></xpath>
         </line>
         <line>
-          <regexp>@^\s*(?&lt;ip&gt;\S+)$@</regexp>
+          <regexp>@^\s*pattern (?&lt;ip&gt;\S+)$@</regexp>
           <xpath></xpath>
         </line>
         <line>
@@ -304,8 +307,9 @@ object-group v6-network {$params.object_id}
 {elseif  $params.type == 'cidr_ipv4'}
 object-group network {$params.object_id}
  {$params.ip} {$params.prefix|get_mask_from_len}
-{else}
- host {$params.fqdn}
+{elseif  $params.type == 'fqdn'}
+object-group fqdn {$params.object_id}
+ pattern {$params.ip|replace:".":"\\."}
 {/if}
 {if isset($params.description)}
  description {$params.description}
@@ -330,11 +334,14 @@ object-group network {$params.object_id}
   </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE">
-    <operation><![CDATA[{if $Address.{$params.object_id}.type == 'cidr_ipv6'}
+    <operation><![CDATA[{if $params.type == 'cidr_ipv6'}
 no object-group v6-network {$params.object_id}
-{else}
+{elseif $params.type == 'cidr_ipv4'}
 no object-group network {$params.object_id}
-{/if}]]></operation>
+{elseif $params.type == 'fqdn'}
+no object-group fqdn {$params.object_id}
+{/if}
+]]></operation>
   </command>
   <command name="LIST"/>
   <displayName>Address</displayName>

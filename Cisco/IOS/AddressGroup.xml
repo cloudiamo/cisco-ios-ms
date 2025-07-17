@@ -37,11 +37,11 @@
         <class>Address</class>
       </classes>
     </variable>
-    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="cidr_ipv4" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="grp_ipv4" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <values displayValue="cidr_ipv4">cidr_ipv4</values>
-        <values displayValue="cidr_ipv6">cidr_ipv6</values>
-        <values displayValue="fqdn">fqdn</values>
+        <values displayValue="grp_ipv4">grp_ipv4</values>
+        <values displayValue="grp_ipv6">grp_ipv6</values>
+        <values displayValue="grp_fqdn">grp_fqdn</values>
       </values>
     </variable>
   </variables>
@@ -92,16 +92,17 @@ object-group network vmr_network_object_group
     <post_template>{assign_object_variable var=&quot;prefix&quot; value=&quot;{$params.mask|get_mask_prefix}&quot;}
 	
 {if $params.network_type == &quot;v6-network&quot;}
- {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv6&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;grp_ipv6&quot;}
 {elseif $params.network_type == &quot;network&quot;}
- {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv4&quot;}
-{elseif $params.network_type == &quot;host&quot;}
- {assign_object_variable var=&quot;type&quot; value=&quot;fqdn&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;grp_ipv4&quot;}
+{elseif $params.network_type == &quot;fqdn&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;grp_fqdn&quot;}
 {/if}</post_template>
     <parser>
       <section>
         <regexp>@^object-group\s+(?&lt;network_type&gt;v6-network)\s+(?&lt;object_id&gt;\S+)@</regexp>
         <regexp>@^object-group\s+(?&lt;network_type&gt;network)\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;fqdn)\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <line>
@@ -109,7 +110,7 @@ object-group network vmr_network_object_group
           <xpath></xpath>
         </line>
         <line>
-          <regexp>@\s*(?&lt;network_type&gt;host)\s+(?&lt;ip&gt;\S+)$@</regexp>
+          <regexp></regexp>
           <xpath></xpath>
         </line>
         <line>
@@ -123,11 +124,11 @@ object-group network vmr_network_object_group
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if $params.type == 'cidr_ipv6'}
+    <operation><![CDATA[{if $params.type == 'grp_ipv6'}
 	object-group v6-network {$params.object_id}
-{elseif  $params.type == 'cidr_ipv4'}
+{elseif  $params.type == 'grp_ipv4'}
 	object-group network {$params.object_id}
-{elseif  $params.type == 'fqdn'}
+{elseif  $params.type == 'grp_fqdn'}
 	object-group fqdn {$params.object_id}
 {/if}
 {foreach $params.members as $member}	
@@ -139,11 +140,11 @@ object-group network vmr_network_object_group
   </command>
   <command name="READ"/>
   <command name="UPDATE">
-    <operation><![CDATA[{if $params.type == 'cidr_ipv6'}
+    <operation><![CDATA[{if $params.type == 'grp_ipv6'}
 	object-group v6-network {$params.object_id}
-{elseif  $params.type == 'cidr_ipv4'}
+{elseif  $params.type == 'grp_ipv4'}
 	object-group network {$params.object_id}
-{elseif  $params.type == 'fqdn'}
+{elseif  $params.type == 'grp_fqdn'}
 	object-group fqdn {$params.object_id}
 {/if}
 
@@ -157,6 +158,10 @@ object-group network vmr_network_object_group
 	{if !$found}
 		no permit ip any object-group {$old_members.member}
 	{/if}
+{/foreach}
+
+{foreach $params.members as $member}	
+	group-object {$member.member}
 {/foreach}
 
 {if isset($params.description)}
