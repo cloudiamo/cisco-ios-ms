@@ -29,7 +29,7 @@
     </directoryNames>
   </information>
   <variables frozen="0">
-    <variable displayName="Name" name="params.object_id" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" selector="params.grp_type" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="whitelist_ipv4" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="0" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" selector="params.grp_type" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="whitelist_ipv4" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="name" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="true" name="params.object_id" selectorValue="grp_ipv4" startIncrement="0" type="String" default="whitelist_ipv4" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
@@ -99,7 +99,7 @@
         </behaviour>
       </behaviors>
     </variable>
-    <variable displayName="Group Type" name="params.grp_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="grp_ipv4" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Group Type" name="params.grp_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="0" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="grp_ipv4" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="grp_ipv4">grp_ipv4</values>
         <values displayValue="grp_ipv6">grp_ipv6</values>
@@ -113,7 +113,7 @@
         <values displayValue="fqdn">fqdn</values>
       </values>
     </variable>
-    <variable displayName="Destination" name="params.destinations.0.destination" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="grp_type" remoteVarNameMatch="Type" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Destination" name="params.destinations.0.destination" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="1000" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="grp_type" remoteVarNameMatch="Type" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>AddressGroup</class>
       </classes>
@@ -265,39 +265,38 @@ ipv6 access-list whitelist_ipv6
   <command name="READ"/>
   <command name="UPDATE">
     <operation><![CDATA[{if $params.type == 'ipv4' || $params.type == 'fqdn' || $params.type == 'ipv6'}
-	{if $params.type == 'ipv4'}
-		ip access-list extended whitelist_ipv4
-	{elseif $params.type == 'fqdn'}
-		ip access-list extended whitelist_fqdn
-	{elseif $params.type == 'ipv6'}
-		ipv6 access-list whitelist_ipv6
-	{/if}
-
-	{foreach $params.destinations as $item}
-		{if $params.type == 'ipv4'}
-			permit ip any object-group {$item.destination}
-		{elseif $params.type == 'fqdn'}
-			permit ip any fqdn-group {$item.destination}
-		{elseif $params.type == 'ipv6'}
-			permit ipv6 any object-group {$item.destination}
-		{/if}
-	{/foreach}
-
-	{foreach $FirewallPolicy.{$params.object_id}.destinations as $old_item}
-		{assign var="found" value=false}
-		{foreach $params.destinations as $new_item}
-			{if $new_item.destination == $old_item.destination}
-				{assign var="found" value=true}
-			{/if}
-		{/foreach}
-		{if !$found}
-			{if $params.type == 'ipv4' || $params.type == 'fqdn'}
-				no permit ip any object-group {$old_item.destination}
-			{elseif $params.type == 'ipv6'}
-				no permit ipv6 any object-group {$old_item.destination}
-			{/if}
-		{/if}
-	{/foreach}
+  {assign var="acl_header" value=""}
+  {assign var="permit_cmd" value=""}
+  {assign var="no_permit_cmd" value=""}
+  {if $params.type == 'ipv4'}
+    {assign var="acl_header" value="ip access-list extended whitelist_ipv4"}
+    {assign var="permit_cmd" value="permit ip any object-group"}
+    {assign var="no_permit_cmd" value="no permit ip any object-group"}
+  {elseif $params.type == 'fqdn'}
+    {assign var="acl_header" value="ip access-list extended whitelist_fqdn"}
+    {assign var="permit_cmd" value="permit ip any fqdn-group"}
+    {assign var="no_permit_cmd" value="no permit ip any fqdn-group"}
+  {elseif $params.type == 'ipv6'}
+    {assign var="acl_header" value="ipv6 access-list whitelist_ipv6"}
+    {assign var="permit_cmd" value="permit ipv6 any object-group"}
+    {assign var="no_permit_cmd" value="no permit ipv6 any object-group"}
+  {/if}
+  {$acl_header}
+  {foreach $params.destinations as $item}
+    {$permit_cmd} {$item.destination|trim}
+  {/foreach}
+{foreach $FirewallPolicy.{$params.object_id}.destinations as $old_item}
+{assign var="found" value=false}
+{foreach $params.destinations as $new_item}
+{if $new_item.destination|trim == $old_item.destination|trim}
+{assign var="found" value=true}
+{break}
+{/if}
+{/foreach}
+{if !$found}
+{$no_permit_cmd} {$old_item.destination|trim}
+{/if}
+{/foreach}
 {/if}]]></operation>
   </command>
   <command name="CONSTRAINT"/>
