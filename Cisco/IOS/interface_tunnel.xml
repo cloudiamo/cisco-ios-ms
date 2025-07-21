@@ -1,0 +1,215 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>Manage (CRUD-I) only the interface tunnel on Cisco IOS</description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>interface tunnel</name>
+    <group>SASE|SSE</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>sase</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Interface Tunnel id" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="Should start with &quot;Tunnel&quot;" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="mode" name="params.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="gre" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="gre">gre</values>
+        <values displayValue="ipsec">ipsec</values>
+      </values>
+    </variable>
+    <variable displayName="ipsec_profile" name="params.ipsec_profile" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" selector="params.mode" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="ipsec_profile" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.ipsec_profile" selectorValue="gre" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.mode</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="ipsec_profile" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.ipsec_profile" selectorValue="" startIncrement="0" type="ObjectRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <classes>
+            <class>ipsec_settings</class>
+          </classes>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector></selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+    </variable>
+    <variable displayName="Tcp mss" name="params.tcp_mss" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="1436" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="period" name="params.keepalive_period" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="10" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Keepalive</sections>
+      </sections>
+    </variable>
+    <variable displayName="retries" name="params.keepalive_retries" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="3" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Keepalive</sections>
+      </sections>
+    </variable>
+    <variable displayName="External interface" name="params.source_interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>interface</class>
+      </classes>
+    </variable>
+    <variable displayName="Peer IP address" name="params.peer_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="130" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>interface Tunnel1 
+ description &quot;Primary GRE Tunnel&quot;
+ ip unnumbered GigabitEthernet1
+ ip tcp adjust-mss 1436
+ keepalive 10 3
+ tunnel source GigabitEthernet1 
+ tunnel destination 1.1.1.1
+
+!
+interface Tunnel2
+ description &quot;Backup GRE Tunnel&quot;
+ ip unnumbered GigabitEthernet1
+ ip tcp adjust-mss 1436
+ keepalive 10 3
+ tunnel source GigabitEthernet1 
+ tunnel destination 1.1.1.2
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile ipsec-prof-nskp2</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[sho run | sec  interface Tunnel]]></operation>
+    <post_template>{if empty($params.mode)}
+{assign_object_variable var=&quot;mode&quot; value=&quot;gre&quot;}
+{/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@^interface\sTunnel(?&lt;object_id&gt;\d+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@^\sdescription &quot;(?&lt;description&gt;.+)&quot;$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\sip tcp adjust-mss (?&lt;tcp_mss&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\skeepalive (?&lt;keepalive_period&gt;\S+) (?&lt;keepalive_retries&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\stunnel source (?&lt;source_interface&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\stunnel destination (?&lt;peer_ip&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s+tunnel mode (?&lt;mode&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s+tunnel protection ipsec profile (?&lt;ipsec_profile&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <ignore>
+          <regexp>@^\sip unnumbered.*@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[interface Tunnel{$params.object_id}
+ {if not empty($params.description)}description "{$params.description}"
+ {/if}
+ ip unnumbered {$params.source_interface}
+ {if not empty($params.tcp_mss)}ip tcp adjust-mss {$params.tcp_mss} 
+ {else}ip tcp adjust-mss 1436 
+ {/if}
+ {if $params.mode == ipsec } tunnel mode ipsec ipv4
+ tunnel protection ipsec profile {$params.ipsec_profile}
+ {/if}
+ 
+ keepalive {$params.keepalive_period} {$params.keepalive_retries}
+ tunnel source {$params.source_interface} 
+ tunnel destination {$params.peer_ip}]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[interface Tunnel{$params.object_id}
+ {if not empty($params.description)}description "{$params.description}"
+ {/if}
+ ip unnumbered {$params.source_interface}
+ {if not empty($params.tcp_mss)}ip tcp adjust-mss {$params.tcp_mss} 
+ {else}ip tcp adjust-mss 1436 
+ {/if}
+ {if $params.mode == ipsec } tunnel mode ipsec ipv4
+ tunnel protection ipsec profile {$params.ipsec_profile}
+ {/if}
+ 
+ keepalive {$params.keepalive_period} {$params.keepalive_retries}
+ tunnel source {$params.source_interface} 
+ tunnel destination {$params.peer_ip}]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[no interface Tunnel{$params.object_id} ]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>interface tunnel</displayName>
+  <order>0</order>
+</ObjectDefinition>

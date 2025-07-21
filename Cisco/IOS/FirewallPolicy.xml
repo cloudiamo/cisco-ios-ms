@@ -1,0 +1,315 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>The FirewallPolicy object defines and manages firewall rules and policies within the SASE framework. It supports configuration of access control lists (ACLs) and object groups for network security.</description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>FirewallPolicy</name>
+    <group>SASE</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>SASE</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="0" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" selector="params.grp_type" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="whitelist_ipv4" isMandatory="false" isUserLocked="true" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="name" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="true" name="params.object_id" selectorValue="grp_ipv4" startIncrement="0" type="String" default="whitelist_ipv4" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <values>
+            <values displayValue="whitelist_ipv4">whitelist_ipv4</values>
+          </values>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="name" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="true" name="params.object_id" selectorValue="grp_ipv6" startIncrement="0" type="String" default="whitelist_ipv6" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="name" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="true" name="params.object_id" selectorValue="grp_fqdn" startIncrement="0" type="String" default="whitelist_fqdn" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+    </variable>
+    <variable displayName="Group Type" name="params.grp_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="0" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="grp_ipv4" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="grp_ipv4">grp_ipv4</values>
+        <values displayValue="grp_ipv6">grp_ipv6</values>
+        <values displayValue="grp_fqdn">grp_fqdn</values>
+      </values>
+    </variable>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="ipv4" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="ipv4">ipv4</values>
+        <values displayValue="ipv6">ipv6</values>
+        <values displayValue="fqdn">fqdn</values>
+      </values>
+    </variable>
+    <variable displayName="Destination" name="params.destinations.0.destination" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="1000" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="grp_type" remoteVarNameMatch="Type" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>AddressGroup</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content>ip access-list extended whitelist_ipv4
+ 10 permit ip any object-group ela-cidr
+ 20 permit ip any object-group test_group
+ 30 permit ip any object-group network-test
+ 40 permit ip any object-group abr123
+ 50 permit ip any object-group test
+ 60 permit ip any object-group netskope_ipv4_grp_824
+ 70 permit ip any object-group zscaler_ipv4_grp_825
+ 80 permit ip any object-group zscaler_ipv4_grp_828
+ 90 permit ip any object-group netskope_ipv4_grp_835
+ 100 permit ip any object-group netskope_ipv4_grp_869
+ip access-list extended whitelist_fqdn
+ 10 permit ip any fqdn-group paloalto_fqdn_grp_826
+ 20 permit ip any fqdn-group paloalto_fqdn_grp_837
+ 30 permit ip any fqdn-group paloalto_fqdn_grp_870
+ 40 permit ip any fqdn-group ela-group-fqdn
+ 50 permit ip any fqdn-group ela_fqdn_escaped
+ 60 permit ip any fqdn-group paloalto_fqdn_grp_935
+ip access-list extended whitelist_fqdn-test
+ 10 permit ip any fqdn-group ela-group-fqdn
+ipv6 access-list whitelist_ipv6
+ sequence 10 permit ipv6 any object-group zscaler_ipv6_grp_825
+ sequence 20 permit ipv6 any object-group zscaler_ipv6_grp_828
+ sequence 30 permit ipv6 any object-group ela-v6
+ sequence 40 permit ipv6 any object-group v6-test2</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[sho run | sec  ip access-list extended whitelist_##sho run | sec  ipv6 access-list whitelist_ipv6]]></operation>
+    <post_template>
+{if $params.object_id == &quot;whitelist_ipv4&quot;}
+ {assign_object_variable var=&quot;grp_type&quot; value=&quot;grp_ipv4&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;ipv4&quot;}
+{elseif $params.object_id == &quot;whitelist_ipv6&quot;}
+ {assign_object_variable var=&quot;grp_type&quot; value=&quot;grp_ipv6&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;ipv6&quot;}
+{elseif $params.object_id == &quot;whitelist_fqdn&quot;}
+ {assign_object_variable var=&quot;grp_type&quot; value=&quot;grp_fqdn&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;fqdn&quot;}
+{/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@ip access-list extended (?&lt;object_id&gt;whitelist_ipv4)$@</regexp>
+        <regexp>@^ipv6 access-list (?&lt;object_id&gt;whitelist_ipv6)$@</regexp>
+        <regexp>@^ip access-list extended (?&lt;object_id&gt;whitelist_fqdn)$@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <array name="destinations">
+            <regexp>@\d+ permit ip any .* (?&lt;destination&gt;\S+)@</regexp>
+            <regexp>@sequence \d+ permit ipv6 any .* (?&lt;destination&gt;\S+)@</regexp>
+          </array>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{if $params.type == 'ipv4' || $params.type == 'fqdn' || $params.type == 'ipv6'}
+	{if $params.type == 'ipv4'}
+		ip access-list extended whitelist_ipv4
+	{elseif $params.type == 'fqdn'}
+		ip access-list extended whitelist_fqdn
+	{elseif $params.type == 'ipv6'}
+		ipv6 access-list whitelist_ipv6
+	{/if}
+
+	{foreach $params.destinations as $item}
+		{if $params.type == 'ipv4'}
+			permit ip any object-group {$item.destination}
+		{elseif $params.type == 'fqdn'}
+			permit ip any fqdn-group {$item.destination}
+		{elseif $params.type == 'ipv6'}
+			permit ipv6 any object-group {$item.destination}
+		{/if}
+	{/foreach}
+{/if}]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{if $params.type == 'ipv4' || $params.type == 'fqdn' || $params.type == 'ipv6'}
+  {assign var="acl_header" value=""}
+  {assign var="permit_cmd" value=""}
+  {assign var="no_permit_cmd" value=""}
+  {if $params.type == 'ipv4'}
+    {assign var="acl_header" value="ip access-list extended whitelist_ipv4"}
+    {assign var="permit_cmd" value="permit ip any object-group"}
+    {assign var="no_permit_cmd" value="no permit ip any object-group"}
+  {elseif $params.type == 'fqdn'}
+    {assign var="acl_header" value="ip access-list extended whitelist_fqdn"}
+    {assign var="permit_cmd" value="permit ip any fqdn-group"}
+    {assign var="no_permit_cmd" value="no permit ip any fqdn-group"}
+  {elseif $params.type == 'ipv6'}
+    {assign var="acl_header" value="ipv6 access-list whitelist_ipv6"}
+    {assign var="permit_cmd" value="permit ipv6 any object-group"}
+    {assign var="no_permit_cmd" value="no permit ipv6 any object-group"}
+  {/if}
+  {$acl_header}
+  {foreach $params.destinations as $item}
+    {$permit_cmd} {$item.destination|trim}
+  {/foreach}
+{foreach $FirewallPolicy.{$params.object_id}.destinations as $old_item}
+{assign var="found" value=false}
+{foreach $params.destinations as $new_item}
+{if $new_item.destination|trim == $old_item.destination|trim}
+{assign var="found" value=true}
+{break}
+{/if}
+{/foreach}
+{if !$found}
+{$no_permit_cmd} {$old_item.destination|trim}
+{/if}
+{/foreach}
+{/if}]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{if $params.type == 'ipv4'}
+	no ip access-list extended whitelist_ipv4
+{elseif $params.type == 'fqdn'}
+	no ip access-list extended whitelist_fqdn
+{elseif $params.type == 'ipv6'}
+	no ipv6 access-list whitelist_ipv6
+{/if}]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>FirewallPolicy</displayName>
+  <order>0</order>
+</ObjectDefinition>

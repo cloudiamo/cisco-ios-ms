@@ -1,0 +1,349 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>The Address object represents a network address or group of addresses used for configuration and policy enforcement in the system.</description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>Address</name>
+    <group>SASE|SSE</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>SASE</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="Network, V6-Network, FQDN" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="cidr_ipv4" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="cidr_ipv4">cidr_ipv4</values>
+        <values displayValue="cidr_ipv6">cidr_ipv6</values>
+        <values displayValue="fqdn">fqdn</values>
+      </values>
+    </variable>
+    <variable displayName="ip" name="params.ip" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" selector="params.type" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="ip" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.ip" selectorValue="cidr_ipv4" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="fqdn" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.ip" selectorValue="fqdn" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="ip" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.ip" selectorValue="cidr_ipv6" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+    </variable>
+    <variable displayName="prefix" name="params.prefix" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" selector="params.type" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="prefix" displayOrder="4" maxLength="100" isMandatory="false" isUserLocked="false" name="params.mask" selectorValue="cidr_ipv4" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="mask" displayOrder="4" maxLength="100" isMandatory="false" isUserLocked="false" name="params.mask" selectorValue="fqdn" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="prefix" displayOrder="4" maxLength="100" isMandatory="false" isUserLocked="false" name="params.prefix" selectorValue="cidr_ipv6" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage></codeLanguage>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.type</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+    </variable>
+    <variable displayName="mask" name="params.mask" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="network_type" name="params.network_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" validationRegex="" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="network" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="network">network</values>
+        <values displayValue="v6-network">v6-network</values>
+        <values displayValue="fqdn">fqdn</values>
+      </values>
+    </variable>
+  </variables>
+  <example>
+    <content>object-group network zscaler_89.167.131.0_slash_24 
+ 89.167.131.0 255.255.255.0
+object-group v6-network zscaler_2400_7aa0_131b___slash_48 
+ 2400:7AA0:131B::/48
+object-group fqdn testvmr 
+ pattern vmr\.com
+object-group v6-network v6-test-48 
+ 2001:DB8:3333:4444:5555:6666:7777:8889/64
+ 2001:DB8:3333:4444:5555:6666:7777:8887/64
+object-group v6-network v6-test2 
+ 2001:DB8:3333:4444:5555:6666:7777:8888/128
+object-group network vmr-two 
+ group-object network-test-47</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[show run | section object-group]]></operation>
+    <post_template>{assign_object_variable var=&quot;prefix&quot; value=&quot;{$params.mask|get_mask_prefix}&quot;}
+{assign_object_variable var=&quot;ip&quot; value=&quot;{$params.ip|replace:&apos;\\.&apos;:&apos;.&apos;}&quot;}
+
+
+{if $params.network_type == &quot;v6-network&quot;}
+  {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv6&quot;}
+{elseif $params.network_type == &quot;network&quot;}
+  {assign_object_variable var=&quot;type&quot; value=&quot;cidr_ipv4&quot;}
+{elseif $params.network_type == &quot;fqdn&quot;}
+  {assign_object_variable var=&quot;type&quot; value=&quot;fqdn&quot;}
+{/if}
+</post_template>
+    <parser>
+      <section>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;v6-network)\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;network)\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;fqdn)\s+(?&lt;object_id&gt;\S+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s*description\s+(?&lt;description&gt;.+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s*(?&lt;ip&gt;[0-9a-fA-F:]+)\/(?&lt;prefix&gt;\d+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s*pattern (?&lt;ip&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^\s*(?&lt;ip&gt;\d{1,3}(?:\.\d{1,3}){3})\s+(?&lt;mask&gt;\d{1,3}(?:\.\d{1,3}){3})$@</regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{if $params.type == 'cidr_ipv6'}
+object-group v6-network {$params.object_id}
+ {$params.ip}/{$params.prefix}
+{elseif  $params.type == 'cidr_ipv4'}
+object-group network {$params.object_id}
+ {$params.ip} {$params.prefix|get_mask_from_len}
+{elseif  $params.type == 'fqdn'}
+object-group fqdn {$params.object_id}
+ pattern {$params.ip|replace:".":"\\."}
+{/if}
+{if isset($params.description)}
+ description {$params.description}
+{/if}
+
+]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{if $params.type == 'cidr_ipv6'}
+object-group v6-network {$params.object_id}
+ {$params.ip}/{$params.prefix}
+{elseif  $params.type == 'cidr_ipv4'}
+object-group network {$params.object_id}
+ {$params.ip} {$params.prefix|get_mask_from_len}
+{else}
+ host {$params.fqdn}
+{/if}
+{if isset($params.description)}
+ description {$params.description}
+{/if}]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{if $params.type == 'cidr_ipv6'}
+no object-group v6-network {$params.object_id}
+{elseif $params.type == 'cidr_ipv4'}
+no object-group network {$params.object_id}
+{elseif $params.type == 'fqdn'}
+no object-group fqdn {$params.object_id}
+{/if}
+]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>Address</displayName>
+  <order>0</order>
+</ObjectDefinition>

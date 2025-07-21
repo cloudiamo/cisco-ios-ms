@@ -1,0 +1,176 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>The AddressGroup object represents a collection of network addresses or address groups used for organizing and managing network configurations.</description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>AddressGroup</name>
+    <group>SASE</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>SASE</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Network Type" name="params.network_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="member" name="params.members.0.member" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>Address</class>
+      </classes>
+    </variable>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" default="grp_ipv4" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="grp_ipv4">grp_ipv4</values>
+        <values displayValue="grp_ipv6">grp_ipv6</values>
+        <values displayValue="grp_fqdn">grp_fqdn</values>
+      </values>
+    </variable>
+  </variables>
+  <example>
+    <content>object-group network abr123 
+ 192.168.25.0 255.255.255.0
+ 192.168.26.0 255.255.255.0
+object-group network ela-cidr 
+ 192.168.25.0 255.255.255.0
+ 192.168.26.0 255.255.255.0
+object-group fqdn ela-group-fqdn 
+ pattern google\.com
+ pattern gmail\.com
+object-group v6-network ela-v6 
+ 2001:DB8:1::/64
+ 2001:DB8:2::/64
+object-group fqdn fqdn-test 
+ pattern gmail\.com
+object-group fqdn fqdn-test-48 
+ pattern google\.com
+ pattern gmai\.com
+object-group network network-test 
+ 1.1.2.0 255.255.255.0
+object-group network network-test-47 
+ 192.168.3.0 255.255.255.0
+object-group network network-test-48 
+ range 192.168.2.1 192.168.2.24
+ range 192.168.3.1 192.168.3.24
+object-group network network-test-49 
+ 192.168.2.0 255.255.255.0
+ 192.168.3.0 255.255.255.0
+object-group v6-network test-ela 
+ host 2001:DB8:85A3::8A2E
+object-group fqdn testvmr 
+ pattern vmr\.com
+object-group v6-network v6-test-48 
+ 2001:DB8:3333:4444:5555:6666:7777:8889/64
+ 2001:DB8:3333:4444:5555:6666:7777:8887/64
+object-group v6-network v6-test2 
+ 2001:DB8:3333:4444:5555:6666:7777:8888/128
+object-group network vmr_network_object_group 
+ description sample network object group from vmr
+ host 1.1.1.1
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[show run | section object-group]]></operation>
+    <post_template>{assign_object_variable var=&quot;prefix&quot; value=&quot;{$params.mask|get_mask_prefix}&quot;}
+	
+{if $params.network_type == &quot;v6-network&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;grp_ipv6&quot;}
+{elseif $params.network_type == &quot;network&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;grp_ipv4&quot;}
+{elseif $params.network_type == &quot;fqdn&quot;}
+ {assign_object_variable var=&quot;type&quot; value=&quot;grp_fqdn&quot;}
+{/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;v6-network)\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;network)\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group\s+(?&lt;network_type&gt;fqdn)\s+(?&lt;object_id&gt;\S+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@^\s*description\s+(?&lt;description&gt;.+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <array name="members">
+            <regexp>@^\s*group-object\s+(?&lt;member&gt;.+)$@</regexp>
+          </array>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{if $params.type == 'grp_ipv6'}
+	object-group v6-network {$params.object_id}
+{elseif  $params.type == 'grp_ipv4'}
+	object-group network {$params.object_id}
+{elseif  $params.type == 'grp_fqdn'}
+	object-group fqdn {$params.object_id}
+{/if}
+{foreach $params.members as $member}	
+	group-object {$member.member}
+{/foreach}
+{if isset($params.description)}
+ description {$params.description}
+{/if}]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{if $params.type == 'grp_ipv6'}
+	object-group v6-network {$params.object_id}
+{elseif  $params.type == 'grp_ipv4'}
+	object-group network {$params.object_id}
+{elseif  $params.type == 'grp_fqdn'}
+	object-group fqdn {$params.object_id}
+{/if}
+
+{foreach $AddressGroup.$params.members as $old_members}
+	{assign var="found" value=false}
+	{foreach $params.members as $new_members}
+		{if $new_members.member == $old_members.member}
+			{assign var="found" value=true}
+		{/if}
+	{/foreach}
+	{if !$found}
+		no group-object {$old_members.member}
+	{/if}
+{/foreach}
+
+{foreach $params.members as $member}	
+	group-object {$member.member}
+{/foreach}
+
+{if isset($params.description)}
+ description {$params.description}
+{/if}]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+  <displayName>AddressGroup</displayName>
+  <order>0</order>
+</ObjectDefinition>

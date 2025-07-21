@@ -1,0 +1,113 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>To manage (CRUD-I) cisco ios route-map</description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>route-map</name>
+    <group>SASE|SSE</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <directoryNames>
+      <directoryName>sase</directoryName>
+    </directoryNames>
+  </information>
+  <variables frozen="0">
+    <variable displayName="id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="access-list" name="params.access_list" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>access-list</class>
+      </classes>
+    </variable>
+    <variable displayName="primary" name="params.interface_primary" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>interface</sections>
+      </sections>
+      <classes>
+        <class>interface_tunnel</class>
+      </classes>
+    </variable>
+    <variable displayName="secondary" name="params.interface_secondary" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="true" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>interface</sections>
+      </sections>
+      <classes>
+        <class>interface_tunnel</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content>route-map netskope-route-map permit 1
+ match ip address netskope-web-acl
+ set interface Tunnel1
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[sho run | sec route-map]]></operation>
+    <parser>
+      <section>
+        <regexp>@^route-map (?&lt;object_id&gt;\S+) permit@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@^ match ip address (?&lt;access_list&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^ set interface Tunnel(?&lt;interface_primary&gt;\S+)$@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@^ set interface Tunnel(?&lt;interface_primary&gt;\S+) Tunnel(?&lt;interface_secondary&gt;\S+)@</regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[route-map {$params.object_id} permit 1
+ match ip address {$params.access_list}
+ set interface  Tunnel{$params.interface_primary} {if not empty($params.interface_secondary)}Tunnel{$params.interface_secondary}{/if}
+]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[route-map {$params.object_id} permit 1
+ match ip address {$params.access_list}
+ set interface Tunnel{$params.interface_primary} {if not empty($params.interface_secondary)}Tunnel{$params.interface_secondary}{/if}]]></operation>
+  </command>
+  <command name="CONSTRAINT">
+    <operation><![CDATA[{* BEGIN - Auto Generated for Composite Key Variables. *}
+{foreach $route_map as $row}
+{if $row.object_id != $params.object_id}
+{if ($row.interface_secondary == $params.interface_secondary)}
+The combination for secondary should be unique between all objects.
+{break}
+{/if}
+{/if}
+{/foreach}
+{* END - Auto Generated for Composite Key Variables. *}]]></operation>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[no route-map {$params.object_id} ]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>route-map</displayName>
+  <order>0</order>
+</ObjectDefinition>
