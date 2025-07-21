@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description></description>
+    <description>The FirewallPolicy object defines and manages firewall rules and policies within the SASE framework. It supports configuration of access control lists (ACLs) and object groups for network security.</description>
     <displayField>object_id</displayField>
     <order>0</order>
     <visibility/>
