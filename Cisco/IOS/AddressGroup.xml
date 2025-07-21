@@ -156,7 +156,7 @@ object-group network vmr_network_object_group
 		{/if}
 	{/foreach}
 	{if !$found}
-		no permit ip any object-group {$old_members.member}
+		no group-object {$old_members.member}
 	{/if}
 {/foreach}
 
