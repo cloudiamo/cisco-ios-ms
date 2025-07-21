@@ -123,7 +123,7 @@ crypto ikev2 profile {$params.object_id}
          
 crypto ikev2 profile {$params.object_id}
  match fvrf any
- no no  match identity remote address
+ no match identity remote address
  match identity remote address {$params.peer_address} 255.255.255.255 
  identity local fqdn {$params.params.local_id}
  authentication remote pre-share
