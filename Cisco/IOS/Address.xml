@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description></description>
+    <description>The Address object represents a network address or group of addresses used for configuration and policy enforcement in the system.</description>
     <displayField>object_id</displayField>
     <order>0</order>
     <visibility/>
