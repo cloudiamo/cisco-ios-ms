@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description></description>
+    <description>Settings for IKEv2 configuration, including keyrings, peers, and related parameters.</description>
     <displayField>object_id</displayField>
     <order>0</order>
     <visibility/>
