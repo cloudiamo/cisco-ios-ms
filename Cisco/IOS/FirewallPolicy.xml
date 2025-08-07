@@ -301,12 +301,27 @@ ipv6 access-list whitelist_ipv6
   </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE">
-    <operation><![CDATA[{if $params.type == 'ipv4'}
-	no ip access-list extended whitelist_ipv4
-{elseif $params.type == 'fqdn'}
-	no ip access-list extended whitelist_fqdn
-{elseif $params.type == 'ipv6'}
-	no ipv6 access-list whitelist_ipv6
+    <operation><![CDATA[{if $params.type == 'ipv4' || $params.type == 'fqdn' || $params.type == 'ipv6'}
+  {assign var="acl_header" value=""}
+  {assign var="permit_cmd" value=""}
+  {assign var="no_permit_cmd" value=""}
+  {if $params.type == 'ipv4'}
+    {assign var="acl_header" value="ip access-list extended whitelist_ipv4"}
+    {assign var="permit_cmd" value="permit ip any object-group"}
+    {assign var="no_permit_cmd" value="no permit ip any object-group"}
+  {elseif $params.type == 'fqdn'}
+    {assign var="acl_header" value="ip access-list extended whitelist_fqdn"}
+    {assign var="permit_cmd" value="permit ip any fqdn-group"}
+    {assign var="no_permit_cmd" value="no permit ip any fqdn-group"}
+  {elseif $params.type == 'ipv6'}
+    {assign var="acl_header" value="ipv6 access-list whitelist_ipv6"}
+    {assign var="permit_cmd" value="permit ipv6 any object-group"}
+    {assign var="no_permit_cmd" value="no permit ipv6 any object-group"}
+  {/if}
+  {$acl_header}
+  {foreach $params.destinations as $item}
+	{$no_permit_cmd} {$item.destination|trim}
+  {/foreach}
 {/if}]]></operation>
   </command>
   <command name="LIST"/>
