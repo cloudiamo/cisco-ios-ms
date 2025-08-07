@@ -169,7 +169,15 @@ object-group network vmr_network_object_group
 {/if}]]></operation>
   </command>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[{if $params.type == 'grp_ipv6'}
+	no object-group v6-network {$params.object_id}
+{elseif  $params.type == 'grp_ipv4'}
+	no object-group network {$params.object_id}
+{elseif  $params.type == 'grp_fqdn'}
+	no object-group fqdn {$params.object_id}
+{/if}]]></operation>
+  </command>
   <command name="LIST"/>
   <displayName>AddressGroup</displayName>
   <order>0</order>

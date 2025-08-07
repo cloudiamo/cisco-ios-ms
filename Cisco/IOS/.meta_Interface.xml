@@ -10,24 +10,24 @@
             <value>CommandDefinition</value>
         </entry>
         <entry>
-            <key>COMMENT</key>
-            <value>string</value>
-        </entry>
-        <entry>
             <key>TAG</key>
             <value>string</value>
         </entry>
         <entry>
-            <key>MODEL</key>
-            <value>113</value>
+            <key>COMMENT</key>
+            <value>string</value>
+        </entry>
+        <entry>
+            <key>MANUFACTURER</key>
+            <value>1</value>
         </entry>
         <entry>
             <key>FILE_TYPE</key>
             <value>text</value>
         </entry>
         <entry>
-            <key>MANUFACTURER</key>
-            <value>1</value>
+            <key>MODEL</key>
+            <value>113</value>
         </entry>
         <entry>
             <key>DISPLAYNAME</key>
