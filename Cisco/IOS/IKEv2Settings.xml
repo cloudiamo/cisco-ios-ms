@@ -135,8 +135,8 @@ crypto ikev2 profile {$params.object_id}
   </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE">
-    <operation><![CDATA[no crypto ikev2 keyring {$params.object_id}
-no crypto ikev2 profile {$params.object_id}
+    <operation><![CDATA[no crypto ikev2 profile {$params.object_id}
+no crypto ikev2 keyring {$params.object_id}
 ]]></operation>
   </command>
   <command name="LIST"/>
