@@ -26,7 +26,7 @@ if [[ -f /opt/fmc_repository/cisco-ios-ms/.git ]]; then
 	exit 0
 fi
 
-if [[ -f /opt/fmc_repository/CommandDefinition/cisco-ios-ms/.git ]]; then
+if [[ -e /opt/fmc_repository/CommandDefinition/cisco-ios-ms/.git ]]; then
 	log_info "👾 Skipping upgrade for fellow developer."
 	exit 0
 fi
