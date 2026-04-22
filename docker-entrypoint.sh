@@ -20,9 +20,10 @@ then
 fi
 cd / || exit 1
 
-if [[ -f /opt/fmc_repository/cisco-ios-ms/.git ]]; then
+if [[ -e /opt/fmc_repository/cisco-ios-ms/.git ]]; then
 	log_info "👾 Moving existing git repository for backend compatibility."
-	mv /opt/fmc_repository/cisco-ios-ms/.git /opt/fmc_repository/CommandDefinition/cisco-ios-ms.git
+	mkdir -p /opt/fmc_repository/CommandDefinition
+	mv /opt/fmc_repository/cisco-ios-ms /opt/fmc_repository/CommandDefinition/cisco-ios-ms
 	exit 0
 fi
 
