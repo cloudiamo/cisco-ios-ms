@@ -27,9 +27,12 @@ fi
 
 # for backward compatibility with old backend, move existing repository to CommandDefinition
 if [[ -e /opt/fmc_repository/cisco-ios-ms/.git ]]; then
-	log_info "🦖 Moving existing git repository for backend compatibility."
+	log_info "🦖 Moving existing git repository to /opt/fmc_repository/CommandDefinition for backend compatibility."
 	mkdir -p /opt/fmc_repository/CommandDefinition
 	mv /opt/fmc_repository/cisco-ios-ms /opt/fmc_repository/CommandDefinition/cisco-ios-ms
+elif [[ -d /opt/fmc_repository/cisco-ios-ms ]]; then
+	log_info "🐞 Not a git repository. Removing the directory for backend compatibility."
+	rm -rf  /opt/fmc_repository/cisco-ios-ms/
 fi
 
 if [[ -e /opt/fmc_repository/CommandDefinition/cisco-ios-ms/.git ]]; then
