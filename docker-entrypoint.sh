@@ -20,6 +20,7 @@ then
 fi
 cd / || exit 1
 
+# for backward compatibility with old backend, move existing repository to CommandDefinition
 if [[ -e /opt/fmc_repository/cisco-ios-ms/.git ]]; then
 	log_info "👾 Moving existing git repository for backend compatibility."
 	mkdir -p /opt/fmc_repository/CommandDefinition
