@@ -33,6 +33,6 @@ if [[ -e /opt/fmc_repository/CommandDefinition/cisco-ios-ms/.git ]]; then
 fi
 #tar --overwrite --no-same-owner -xf /home/ncuser/fmc-repository.tar.xz -I 'xz -T0' --checkpoint=1000 --checkpoint-action=ttyout='%{%Y-%m-%d %H:%M:%S}t⏳ \033[1;37m(%d sec)\033[0m: \033[1;32m#%u\033[0m, \033[0;33m%{}T\033[0m\r'
 tar --overwrite --no-same-owner -xf /home/ncuser/fmc-repository.tar.xz -I 'xz -T0' --checkpoint=1000 --checkpoint-action=echo='%{%Y-%m-%d %H:%M:%S}t⏳ \033[1;37m(%d sec)\033[0m: \033[1;32m#%u\033[0m, \033[0;33m%{}T\033[0m'
-echo "✅ Sucess ..."
+echo "✅ Success ..."
 
 
