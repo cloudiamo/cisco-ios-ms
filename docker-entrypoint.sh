@@ -24,7 +24,6 @@ if [[ -e /opt/fmc_repository/cisco-ios-ms/.git ]]; then
 	log_info "👾 Moving existing git repository for backend compatibility."
 	mkdir -p /opt/fmc_repository/CommandDefinition
 	mv /opt/fmc_repository/cisco-ios-ms /opt/fmc_repository/CommandDefinition/cisco-ios-ms
-	exit 0
 fi
 
 if [[ -e /opt/fmc_repository/CommandDefinition/cisco-ios-ms/.git ]]; then
